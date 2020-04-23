@@ -47,6 +47,7 @@ function render() {
             <h1>No Books</h1>
       </div>
       `
+      bookshelf.innerHTML = cover
   }else {
     for (let i = 0; i < library.length; i++) {
       cover += `
