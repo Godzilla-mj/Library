@@ -1,0 +1,46 @@
+
+.top-container, .out-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new-book-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-hide {
+  display: none;
+}
+
+.form-show {
+  display: block;
+}
+
+.form, .book-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bookshelf {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.book-cover {
+  border: 1px solid;
+  height: 16rem;
+  width: 13rem;
+  padding: 2rem;
+  margin: 1rem;
+
+}
+
+.cover-title {
+  word-wrap: break-word;
+  font-size-adjust: auto;
+}
