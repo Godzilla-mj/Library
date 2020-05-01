@@ -3,12 +3,12 @@
 const bookshelf = document.querySelector('.bookshelf')
 const newBookBtn = document.querySelector('.new-book-button')
 const formContainer = document.querySelector('#form-showblock')
-const submission = document.querySelector('#submit')
+const submission = document.querySelector('.submit')
 const bookForm = document.querySelector('.book-form1')
-const titleForm = document.querySelector('#title')
-const authorForm = document.querySelector('#author')
-const pageForm = document.querySelector('#pages')
-const readForm = document.querySelector('#read')
+const titleForm = document.querySelector('.title')
+const authorForm = document.querySelector('.author')
+const pageForm = document.querySelector('.pages')
+const readForm = document.querySelector('.read')
 
 //Starter library
 const hobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295);
@@ -31,9 +31,10 @@ function addBookToLibrary(e) {
                             pageForm.value,
                             readForm.value)
   library.push(newBook);
-  titleForm.value = ""
-  authorForm.value = ""
-  pageForm.value = ""
+  titleForm.value = authorForm.value = pageForm.value = ''
+  // titleForm.value = ""
+  // authorForm.value = ""
+  // pageForm.value = ""
   readForm.checked = false
   render()
   formContainer.classList.toggle('form-show')
@@ -49,14 +50,15 @@ function render() {
       `
       bookshelf.innerHTML = cover
   }else {
-    for (let i = 0; i < library.length; i++) {
+    // for (let i = 0; i < library.length; i++) {
+    for (let book in library) {
       cover += `
         <div class = "book-cover">
-          <h3 class = "cover-title"> ${library[i].title}</h4>
-          <h4 class = "cover-author"> Written By: ${library[i].author}</h6>
-          <h6 class = "cover-pages"> ${library[i].pages} pages </h6>
-          <button type = "button" class = "cover-read-status" data-title = "${library[i].title}">${library[i].read ? "Read" : "Unread"}</button>
-          <button type = "button" class = "cover-delete" data-title = "${library[i].title}">Delete </button>
+          <h3 class = "cover-title"> ${library[book].title}</h3>
+          <h4 class = "cover-author"> Written By: ${library[book].author}</h4>
+          <h6 class = "cover-pages"> ${library[book].pages} pages </h6>
+          <button type = "button" class = "cover-read-status" data-title = "${library[book].title}">${library[book].read ? "Read" : "Unread"}</button>
+          <button type = "button" class = "cover-delete" data-title = "${library[book].title}">Delete </button>
         </div>
       `
     }
@@ -91,6 +93,5 @@ function activateBtns() {
 
 submission.addEventListener('click', addBookToLibrary)
 newBookBtn.addEventListener('click', () => formContainer.classList.toggle('form-show'))
-
 
 render()
